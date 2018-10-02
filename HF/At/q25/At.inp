@@ -1,0 +1,64 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT At
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Kr] 4d10 4f14 5s2 5p6 5d10 6s2 6p5
+  CORE [Kr] 4d10 4f14
+  MAX_ANGULAR_MOMENTUM 3
+
+  &METHOD
+     METHOD_TYPE HARTREE-FOCK
+     RELATIVISTIC DKH(3)
+  &END METHOD
+
+  &OPTIMIZATION
+    EPS_SCF 1.e-6
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+    4   11   10    0
+    0.45164832995776       2    7.30740256714743    0.18195600833814
+       3
+    0.28775519792397       3   -5.87686577253569   26.10502922571434  -15.17621970218895
+                                                  -58.39189482663632   39.18480956601559
+                                                                      -31.74617242776971
+    0.37824219132877       3   -5.79570860259257    4.73149367593353    2.92707050774058
+                                                   -0.69378500003145   -6.92677760370347
+                                                                        4.61997311779062
+    0.34317466036944       2   -8.78319036490821    9.49191108276160
+                                                  -10.99260702266986
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.0004
+     MAX_INIT   50
+     MAX_FUN    50
+     STEP_SIZE_SCALING  0.975
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL       [eV]         30.0
+  &END
+
+&END ATOM

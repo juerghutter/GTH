@@ -1,0 +1,85 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT As   
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Ar] 4s2 3d10 4p3
+  CORE [Ar] 3d10
+  MAX_ANGULAR_MOMENTUM 2
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL PBE0
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+  &OPTIMIZATION
+    EPS_SCF 1.e-7
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+#   2    3
+#    0.52000000    0
+#   3
+#    0.45554957    3     5.52067327     0.03512220    -1.06108239
+#                                      -1.77119320     2.73970295
+#                                                     -2.17457180
+#    0.55460557    2     1.02179156     0.62920826
+#                                      -0.74448925
+#    0.70368872    1     0.31479504
+#As
+#    VA   0.000300
+#    U1   0.009800
+#
+#    2    3    0    0
+#    0.51089804423468       0
+#       3
+#    0.45555112262240       3    5.52577234785607    0.03513042130102   -1.06108127219559
+#                      -1.77505668177387    2.73971012671463
+#                      -2.17414739087561
+#    0.55377906894036       2    1.01431644006491    0.62921188575512
+#                      -0.74563941590354
+#    0.70344155679511       1    0.31078852663436
+#As
+    2    3    0    0
+    0.51089886248717       0
+       3
+    0.45555116118502       3    5.52578109463137    0.03513040050903   -1.06108142436795
+                      -1.77505334300608    2.73971001809248
+                      -2.17414658218052
+    0.55378018132375       2    1.01431734761982    0.62921194767122
+                      -0.74563909163249
+    0.70368739296563       1    0.27778844048752
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0 
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.08
+     MAX_INIT   5
+     MAX_FUN    300
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                    1.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+  &END
+&END ATOM

@@ -1,0 +1,68 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT Tl
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Kr] 4d10 4f14 5s2 5p6 5d10 6s2 6p1
+  CORE [Kr] 4d10 4f14
+  MAX_ANGULAR_MOMENTUM 3
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL PBE
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+
+  &OPTIMIZATION
+    EPS_SCF 1.e-6
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+    4    7   10    0
+    0.48271243137487       2    7.15872500172547    0.45867471608462
+       3
+    0.28947307434305       3   -5.74646118756761   26.10502884722757  -15.17622268532535
+                                                  -58.38117876119384   39.18480947038177
+                                                                      -31.30682912627588
+    0.37077959502267       3   -5.91046361076375    4.73149445087162    2.92706617638444
+                                                   -0.68976535568342   -6.92676920045836
+                                                                        4.86982565206428
+    0.34720090409639       2   -8.73125571421580    9.49190847858756
+                                                  -10.80032147616671
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.00005
+     MAX_INIT   25
+     MAX_FUN    500
+     STEP_SIZE_SCALING  0.975
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL       [eV]         15.0
+  &END
+
+&END ATOM

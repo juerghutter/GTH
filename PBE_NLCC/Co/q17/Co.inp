@@ -1,0 +1,73 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT Co   
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Ne] 3s2 3p6 4s2 3d7
+  CORE [Ne]
+  MAX_ANGULAR_MOMENTUM 3
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL PBE
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+  &OPTIMIZATION
+    EPS_SCF 1.e-7
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+#PBE
+#    0    1          2.00      -106.3012321121 SC  -3.976099[**]     0.000082[ X]
+#    0    2          2.00        -5.4660803309 VA  -0.001875[ 0]     0.000219[ X]
+#    0    3          0.00         0.9459353354 U1  -0.000575[ X]     0.000110[ X]
+#    1    1          6.00       -65.4827741825 SC   0.100488[ 0]     0.000009[ X]
+#    1    2          0.00        -1.2394329310 U1  -0.000125[ X]     0.000081[ X]
+#    2    1          7.00        -8.1965257241 VA   0.005345[ 0]    -0.000053[ X]
+#    2    2          0.00         1.9068412410 U1   0.001618[ X]    -0.000108[ X]
+#    3    1          0.00         3.9393108745 U1   0.000460[ X]    -0.000005[ X]
+#
+    4    6    7    0
+    0.35394391509658       2    4.79914343273141    0.49324305254081
+       3
+    0.26758094349957       2   -0.61124316998119    9.28629490076142
+                                                  -11.64931705150696
+    0.27295847106250       2   -6.84426538374141    5.68013248395456
+                                                   -6.72465867253893
+    0.22314315998922       1  -12.34819834673898
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0 
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.00002
+     MAX_INIT   50
+     MAX_FUN    1000
+     STEP_SIZE_SCALING  0.990
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL       [eV]         30.0
+  &END
+&END ATOM

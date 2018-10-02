@@ -1,0 +1,71 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT Sn  
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Kr] 5s2 4d10 5p2
+  CORE [Kr]
+  MAX_ANGULAR_MOMENTUM 2
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL
+         &LIBXC
+          FUNCTIONAL MGGA_X_SCAN
+         &END LIBXC
+         &LIBXC
+           FUNCTIONAL MGGA_C_SCAN
+         &END LIBXC
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+  &OPTIMIZATION
+    EPS_SCF 1.e-7
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+    2    2   10    0
+    0.51696730588860       1    3.12791078480496
+       3
+    0.48089913785872       3   11.02819520893651   -6.57350103697060    1.50686077279891
+                                                   10.72141803675497   -3.89070489294927
+                                                                        3.01858624781204
+    0.56065714319963       2    4.66022075809836   -2.21706557285019
+                                                    2.57555679327184
+    0.37520990820431       2   -3.93508111356507   -0.84012806030548
+                                                    0.95318590742868
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0 
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.0002
+     MAX_INIT   25
+     MAX_FUN    500
+     STEP_SIZE_SCALING  0.95
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE   [eV]         0.003000
+     TARGET_POT_VALENCE    [eV]         0.000300
+     TARGET_POT_VIRTUAL    [eV]         0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL        [eV]        18.0
+  &END
+&END ATOM

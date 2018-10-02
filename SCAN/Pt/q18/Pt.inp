@@ -1,0 +1,75 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT Pt
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+#  ELECTRON_CONFIGURATION  [Kr] 4d10 4f14 5s2 5p6 5d9 6s1
+  ELECTRON_CONFIGURATION  [Kr] 4d10 4f14 5s2 5p6 5d8 6s2 
+  CORE [Kr] 4d10 4f14
+  MAX_ANGULAR_MOMENTUM 3
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL
+         &LIBXC
+          FUNCTIONAL MGGA_X_SCAN
+         &END LIBXC
+         &LIBXC
+           FUNCTIONAL MGGA_C_SCAN
+         &END LIBXC
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+
+  &OPTIMIZATION
+    EPS_SCF 1.e-7
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+    3    6    9    0
+    0.50369374851507       2    8.81185028932735   -0.30251918166958
+       3
+    0.29210327090874       3   -5.97871808320942   24.21289965999992  -13.78967804212236
+                                                  -53.70614143772617   35.60479895361355
+                                                                      -28.25714335205932
+    0.36685767839479       3   -6.66258895897359    7.17066020916068    0.76690369999558
+                                                   -7.20745182660050   -1.81482537999368
+                                                                        1.31048529074392
+    0.34320902925873       2   -8.58947776953127    9.41012199999454
+                                                  -10.68017838627506
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.0002
+     MAX_INIT   100
+     MAX_FUN    50
+     STEP_SIZE_SCALING  0.975
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL       [eV]         15.0
+  &END
+
+&END ATOM
