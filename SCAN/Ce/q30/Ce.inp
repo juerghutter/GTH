@@ -14,7 +14,13 @@
      METHOD_TYPE  KOHN-SHAM
      RELATIVISTIC DKH(3)
      &XC
-       &XC_FUNCTIONAL PBE
+       &XC_FUNCTIONAL
+         &LIBXC
+          FUNCTIONAL MGGA_X_SCAN
+         &END LIBXC
+         &LIBXC
+           FUNCTIONAL MGGA_C_SCAN
+         &END LIBXC
        &END XC_FUNCTIONAL
      &END XC
   &END METHOD
@@ -32,17 +38,22 @@
   &POTENTIAL
     PSEUDO_TYPE GTH
     &GTH_POTENTIAL
-#Ce 9.46
+#Ce 49.25
+#Ce 42.07
+#Ce 38.50
+#Ce 35.70
+#Ce 32.30
+#Ce 30.04
     6   12   11    1
-    0.20023676415652       2  147.89569874605343    3.98147863194881
+    0.20006243555054       2  148.00680954904675    4.20897599184275
        4
-    0.23888920297065       2    2.45967228171085    4.20999892849392
-                                                   -5.43153060220176
-    0.17285619219171       3   -4.78836190524341   11.78843845118317    0.01475881165918
-                                                  -13.99723840381655   -0.03492688063493
-                                                                        0.13468722672975
-    0.17178056618808       1  -14.90965508548769
-    0.26523665553317       1   -4.75045410352283
+    0.24121467728955       2    2.22104314880706    4.21352386898698
+                                                   -5.36864247402728
+    0.17309769133041       3   -4.75423492421649   11.78844186418886    0.01475604979747
+                                                  -14.00917507983754   -0.03492393563884
+                                                                        0.19425831941089
+    0.17185841187904       1  -14.80256492204920
+    0.26566159135703       1   -4.76641788667550
     &END 
     CONFINEMENT_TYPE  BARRIER
     CONFINEMENT 200. 4.0 12.0
@@ -50,10 +61,10 @@
 
   &POWELL
      ACCURACY   1.e-14
-     STEP_SIZE  0.1
+     STEP_SIZE  0.01
      MAX_INIT   100
-     MAX_FUN    5000
-     STEP_SIZE_SCALING  0.975
+     MAX_FUN    2000
+     STEP_SIZE_SCALING  0.925
      WEIGHT_PSIR0 0.0
      TARGET_POT_SEMICORE      [eV]      0.003000
      TARGET_POT_VALENCE       [eV]      0.000300
