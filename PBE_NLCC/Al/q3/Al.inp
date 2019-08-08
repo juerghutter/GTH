@@ -32,28 +32,29 @@
     PSEUDO_TYPE GTH
     &GTH_POTENTIAL
     2    1    0    0
-    0.45000971106835       1   -7.55644997237063
+    0.60594400861344       2   -5.21529977379573    0.69609071713411
+ NLCC     1
+    0.43032015325348       1   28.60308282798523
        2
-    0.48744057136206       2    6.96008533256047   -1.88883535944668
-                                                    2.43848344694845
-    0.56227366274780       1    1.86536320212543
+    0.45140537568701       2    5.99619333577264   -1.91493839159544
+                                                    3.68248437561266
+    0.53726482090405       1    2.27254760832478
     &END 
     CONFINEMENT_TYPE  BARRIER
     CONFINEMENT 200. 4.0 12.0 
   &END POTENTIAL
-
   &POWELL
      ACCURACY   1.e-14
-     STEP_SIZE  0.001
-     STEP_SIZE_SCALING  0.80
+     STEP_SIZE  0.002
+     STEP_SIZE_SCALING  0.975
      MAX_INIT   10
-     MAX_FUN    100
+     MAX_FUN    1000
      WEIGHT_PSIR0 0.0
-     TARGET_POT_SEMICORE     [eV]       0.003000
-     TARGET_POT_VALENCE      [eV]       0.000300
-     TARGET_POT_VIRTUAL      [eV]       0.003000
-     WEIGHT_POT_NODE                    1.0
-     WEIGHT_POT_SEMICORE                1.0
+     TARGET_POT_SEMICORE     [eV]       0.00300
+     TARGET_POT_VALENCE      [eV]       0.00030
+     TARGET_POT_VIRTUAL      [eV]       0.00300
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
      WEIGHT_POT_VALENCE                 5.0
      WEIGHT_POT_VIRTUAL                 1.0
      SEMICORE_LEVEL          [eV]      10.0

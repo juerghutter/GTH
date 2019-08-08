@@ -31,12 +31,23 @@
   &POTENTIAL
     PSEUDO_TYPE GTH
     &GTH_POTENTIAL
+#    2    4    0    0
+#    0.46391228476912       2   -4.17097723536256    0.32186838159234
+# NLCC     1
+#    0.44620231360571       1   71.62066298806154
+#       2
+#    0.36527714675968       2   13.02494201046435   -4.24185162036797
+#                                                    5.48510320902048
+#    0.41056428741514       1    3.61595017523979
+#S 
     2    4    0    0
-    0.42011499303898       1   -5.97478038621959
+    0.46391209303432       2   -4.17096815672129    0.32203462451127
+ NLCC     1
+    0.44617995142152       1   71.75828443043059
        2
-    0.36482480920276       2   13.14466044740433   -4.24182995427252
-                                                    5.47617796846414
-    0.40947908948436       1    3.70086987060604
+    0.36528164220534       2   13.02498648181192   -4.24185054705793
+                                                    5.48513562875724
+    0.41057077370210       1    3.61593625711166
     &END 
     CONFINEMENT_TYPE  BARRIER
     CONFINEMENT 200. 4.0 12.0 
@@ -44,16 +55,17 @@
 
   &POWELL
      ACCURACY   1.e-14
-     STEP_SIZE  0.001
-     MAX_INIT   10
-     MAX_FUN    100
+     STEP_SIZE  0.006
+     STEP_SIZE_SCALING  0.975
+     MAX_INIT   50
+     MAX_FUN    250
      WEIGHT_PSIR0 0.0
      TARGET_POT_SEMICORE     [eV]       0.003000
      TARGET_POT_VALENCE      [eV]       0.000300
      TARGET_POT_VIRTUAL      [eV]       0.003000
-     WEIGHT_POT_NODE                    1.0
-     WEIGHT_POT_SEMICORE                1.0
-     WEIGHT_POT_VALENCE                 2.0
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 1.0
      WEIGHT_POT_VIRTUAL                 1.0
      SEMICORE_LEVEL          [eV]      25.0
      RCOV_MULTIPLICATION                1.00
