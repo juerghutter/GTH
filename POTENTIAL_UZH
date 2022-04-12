@@ -6,7 +6,166 @@
 #     Version 1.0 May 2021        PBE:GGA
 #                                 SCAN:MGGA
 #                                 PBE0:HYB
+#     Version 1.1 April 2022      ALL (H-Kr)
 #
+################################################################################
+#
+# All-electron (full nuclear potential) definitions in the GTH-format:
+#
+# Element symbol  Name of the potential  Alias names
+# n_elec(s)  n_elec(p)  n_elec(d)  ...
+# r_loc   0
+#
+# n_elec   : Number of electrons for each angular momentum quantum number
+#            (electronic configuration -> s p d ...)
+# r_loc    : Radius for the local part defined by the Gaussian function
+#            exponent alpha_erf
+#
+################################################################################
+H ALL-q1 ALL
+    1    0    0
+     0.20000000    0
+
+He ALL-q2 ALL
+    2    0    0
+     0.20000000    0
+
+Li ALL-q3 ALL
+    3    0    0
+     0.40000000    0
+
+Be ALL-q4 ALL
+    4    0    0
+     0.32500000    0
+
+B ALL-q5 ALL
+    4    1    0
+     0.43392956    0
+
+C ALL-q6 ALL
+    4    2    0
+     0.34883045    0
+
+N ALL-q7 ALL
+    4    3    0
+     0.28917923    0
+
+O ALL-q8 ALL
+    4    4    0
+     0.24762086    0
+
+F ALL-q9 ALL
+    4    5    0
+     0.21852465    0
+
+Ne ALL-q10 ALL
+    4    6    0
+     0.19000000    0
+
+Na ALL-q11 ALL
+    5    6    0
+     0.24631780    0
+
+Mg ALL-q12 ALL
+    6    6    0
+     0.21094954    0
+
+Al ALL-q13 ALL
+    6    7    0
+     0.45000000    0
+
+Si ALL-q14 ALL
+    6    8    0
+     0.44000000    0
+
+P ALL-q15 ALL
+    6    9    0
+     0.43000000    0
+
+S ALL-q16 ALL
+    6   10    0
+     0.42000000    0
+
+Cl ALL-q17 ALL
+    6   11    0
+     0.41000000    0
+
+Ar ALL-q18 ALL
+    6   12    0
+     0.40000000    0
+
+K ALL-q19 ALL
+    7   12    0
+     0.40000000    0
+
+Ca ALL-q20 ALL
+    8   12    0
+     0.39000000    0
+
+Sc ALL-q21 ALL
+    8   12    1
+     0.38500000    0
+
+Ti ALL-q22 ALL
+    8   12    2
+     0.3800000    0
+
+V  ALL-q23 ALL
+    8   12    3
+     0.37500000    0
+
+Cr ALL-q24 ALL
+    8   12    4
+     0.37000000    0
+
+Mn ALL-q25 ALL
+    8   12    5
+     0.36500000    0
+
+Fe  ALL-q26 ALL
+    8   12    6
+     0.36000000    0
+
+Co  ALL-q27 ALL
+    8   12    7
+     0.35500000    0
+
+Ni  ALL-q28 ALL
+    8   12    8
+     0.35000000    0
+
+Cu ALL-q29 ALL
+    8   12    9
+     0.53000000    0
+
+Zn ALL-q30 ALL
+    8   12   10
+     0.34000000    0
+
+Ga ALL-q31 ALL
+    8   13   10
+     0.49000000    0
+
+Ge ALL-q32 ALL
+    8   14   10
+     0.54000000    0
+
+As ALL-q33 ALL
+    8   15   10
+     0.52000000    0
+
+Se ALL-q34 ALL
+    8   16   10
+     0.51000000    0
+
+Br ALL-q35 ALL
+    8   17   10
+     0.50000000    0
+
+Kr ALL-q36 ALL
+    8   18   10
+     0.50000000    0
+
 ################################################################################
 #
 # GTH Pseudopotentials optimized for PBE
