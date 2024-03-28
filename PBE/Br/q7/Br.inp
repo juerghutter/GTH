@@ -56,7 +56,7 @@
       TARGET_POT_SEMICORE      [eV]      0.003000
       TARGET_POT_VALENCE       [eV]      0.000300
       TARGET_POT_VIRTUAL       [eV]      0.003000
-      WEIGHT_POT_NODE                    1.0
+      WEIGHT_POT_NODE                   10.0
       WEIGHT_POT_SEMICORE                2.0
       WEIGHT_POT_VALENCE                 5.0
       WEIGHT_POT_VIRTUAL                 1.0
