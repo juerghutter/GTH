@@ -19,27 +19,27 @@
      &END XC
   &END METHOD
   &OPTIMIZATION
-    EPS_SCF 1.e-7
+    EPS_SCF 1.e-8
   &END 
 
   &AE_BASIS
-     BASIS_TYPE GEOMETRICAL_GTO
+#    BASIS_TYPE GEOMETRICAL_GTO
   &END AE_BASIS
   &PP_BASIS
-     BASIS_TYPE GEOMETRICAL_GTO
+#    BASIS_TYPE GEOMETRICAL_GTO
   &END PP_BASIS
   &POTENTIAL
     PSEUDO_TYPE GTH
     &GTH_POTENTIAL
     2    2    0    0
-    0.60500000000003       1    6.27442191905600
+    0.60501808164382       1    6.27367805265057
        3
-    0.56643732000000       3    1.57164411773465    1.47004117833081   -1.17857665077102
-                                                   -3.81477012999935    3.04307192999850
-                                                                       -2.41536346999667
-    0.64205896910888       2    0.52689769000000    0.40325781074377
-                                                   -0.47714106999951
-    0.99094149595510       1    0.19914139000045
+    0.56635366011024       3    1.57233667482262    1.47002607667885   -1.17853275530703
+                                                   -3.81461496094673    3.04302400740795
+                                                                       -2.41553662279911
+    0.64202141248077       2    0.52675422547264    0.40325063608647
+                                                   -0.47729091265434
+    0.78015462042854       1    0.76235596909603
     &END 
     CONFINEMENT_TYPE  BARRIER
     CONFINEMENT 200. 4.0 12.0 
@@ -47,9 +47,10 @@
 
   &POWELL
      ACCURACY   1.e-14
-     STEP_SIZE  0.0005
-     MAX_INIT   10
-     MAX_FUN    500
+     STEP_SIZE  0.002
+     MAX_INIT   2
+     MAX_FUN    200
+     STEP_SIZE_SCALING  0.85
      WEIGHT_PSIR0 0.0
      TARGET_POT_SEMICORE   [eV]         0.003000
      TARGET_POT_VALENCE    [eV]         0.000300
