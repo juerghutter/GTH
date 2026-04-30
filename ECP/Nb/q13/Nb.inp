@@ -1,0 +1,95 @@
+&GLOBAL
+  PROGRAM_NAME ATOM
+&END GLOBAL
+&ATOM
+  ELEMENT Nb  
+
+  RUN_TYPE PSEUDOPOTENTIAL_OPTIMIZATION
+
+  ELECTRON_CONFIGURATION  [Ar] 3d10 4s2 4p6 5s2 4d3
+  CORE [Ar] 3d10
+
+  MAX_ANGULAR_MOMENTUM 3
+
+  &METHOD
+     METHOD_TYPE  KOHN-SHAM
+     RELATIVISTIC DKH(3)
+     &XC
+       &XC_FUNCTIONAL PBE0
+       &END XC_FUNCTIONAL
+     &END XC
+  &END METHOD
+  &OPTIMIZATION
+    EPS_SCF 1.e-7
+  &END 
+
+  &AE_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END AE_BASIS
+  &PP_BASIS
+     BASIS_TYPE GEOMETRICAL_GTO
+  &END PP_BASIS
+  &POTENTIAL
+    PSEUDO_TYPE GTH
+    &GTH_POTENTIAL
+#PBE
+#    0    1          2.00       -62.5107364793 SC  -1.753054[92]     0.000220[ X]
+#    0    2          2.00        -4.6714885884 VA  -0.001617[ 0]     0.000261[ X]
+#    0    3          0.00         1.0897448219 U1  -0.000857[ X]     0.000138[ X]
+#    1    1          6.00       -37.3143289392 SC  -0.530808[ 8]     0.000235[ X]
+#    1    2          0.00        -1.4036380679 U1  -0.000325[ X]     0.000222[ X]
+#    2    1          3.00        -4.6236255789 VA   0.002224[ 0]    -0.000144[ X]
+#    2    2          0.00         1.8074423902 U1   0.001403[ X]    -0.000073[ X]
+#    3    1          0.00         3.5891615368 U1   0.001887[ X]    -0.000193[ X]
+#
+#    3    6    4   0
+#     0.46000000    2    26.27526252    -4.57803146
+#    3
+#     0.35116942    2    -1.04371870     3.27790404
+#                                       -4.23175592
+#     0.40546040    2    -0.66246647    -0.90782868
+#                                        1.07415738
+#     0.42212155    2     1.49409323    -3.43003953
+#                                        3.88929925
+#PBE0
+#    0    1          2.00       -66.8687133895 SC  -1.602394[92]     0.000163[ X]
+#    0    2          2.00        -5.3659917583 VA   0.003145[ 0]     0.000066[ X]
+#    0    3          0.00         1.4755462278 U1  -0.000121[ X]     0.000179[ X]
+#    1    1          6.00       -40.3028727470 SC  -0.473107[ 8]     0.000161[ X]
+#    1    2          0.00        -0.9351322445 U1  -0.000538[ X]     0.000218[ X]
+#    2    1          3.00        -4.2238979881 VA  -0.005681[ 0]     0.000283[ 0]
+#    2    2          0.00         2.2272509016 U1  -0.000177[ X]    -0.000133[ X]
+#    3    1          0.00         3.9684541700 U1   0.000929[ X]    -0.000133[ X]
+#
+#Nb
+    3    6    4    0
+    0.45980846813949       2   26.99467877628663   -4.62625480351576
+       3
+    0.32710749295591       2   -1.18581709237904    3.27791182555256
+                      -4.30953365851709
+    0.40386049488084       2   -0.70059682431254   -0.90782657217924
+                       1.08137478433683
+    0.42226717369791       2    1.49548239538462   -3.43005846323100
+                       3.88776308037275
+    &END 
+    CONFINEMENT_TYPE  BARRIER
+    CONFINEMENT 200. 4.0 12.0 
+  &END POTENTIAL
+
+  &POWELL
+     ACCURACY   1.e-14
+     STEP_SIZE  0.00005
+     MAX_INIT   10
+     MAX_FUN    1000
+     STEP_SIZE_SCALING  0.90
+     WEIGHT_PSIR0 0.0
+     TARGET_POT_SEMICORE      [eV]      0.003000
+     TARGET_POT_VALENCE       [eV]      0.000300
+     TARGET_POT_VIRTUAL       [eV]      0.003000
+     WEIGHT_POT_NODE                   10.0
+     WEIGHT_POT_SEMICORE                2.0
+     WEIGHT_POT_VALENCE                 5.0
+     WEIGHT_POT_VIRTUAL                 1.0
+     SEMICORE_LEVEL       [eV]         20.0
+  &END
+&END ATOM
